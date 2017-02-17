@@ -14,3 +14,4 @@ There are/will be also other designs taken from various places.
 - DoubleFishSpiner
 - PulseLoader
 - LineSpinner
+- RectangleLoader

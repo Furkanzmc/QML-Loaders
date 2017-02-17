@@ -114,5 +114,10 @@ Window {
             width: 50
             height: 20
         }
+
+        RectangleLoader {
+            width: 50
+            height: 50
+        }
     }
 }

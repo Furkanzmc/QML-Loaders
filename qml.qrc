@@ -6,5 +6,6 @@
         <file>qml/Loaders/LineSpinner.qml</file>
         <file>qml/Loaders/FishSpinner.qml</file>
         <file>qml/Loaders/BlockLoader.qml</file>
+        <file>qml/Loaders/RectangleLoader.qml</file>
     </qresource>
 </RCC>
