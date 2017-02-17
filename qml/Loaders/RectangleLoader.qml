@@ -4,6 +4,11 @@ import QtQuick 2.7
  * Design by Enes Özgör: ens.ninja
  **/
 Item {
+
+    // ----- Public Properties ----- //
+
+    property alias color: rect.color
+
     id: root
 
     Rectangle {
