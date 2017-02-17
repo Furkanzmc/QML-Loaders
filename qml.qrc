@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>qml/Loaders/SharinganLoader.qml</file>
+        <file>qml/Loaders/PulseLoader.qml</file>
+        <file>qml/Loaders/LineSpinner.qml</file>
+        <file>qml/Loaders/FishSpinner.qml</file>
+        <file>qml/Loaders/BlockLoader.qml</file>
+    </qresource>
+</RCC>
