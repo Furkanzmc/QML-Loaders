@@ -14,4 +14,4 @@ There are/will be also other designs taken from various places.
 - DoubleFishSpiner
 - PulseLoader
 - LineSpinner
-- RectangleLoader (By [Enes Özgör](https://github.com/enszgr))
+- RectangleLoader (Concept by [Enes Özgör](https://github.com/enszgr))
