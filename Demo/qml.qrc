@@ -7,5 +7,7 @@
         <file>qml/Loaders/FishSpinner.qml</file>
         <file>qml/Loaders/BlockLoader.qml</file>
         <file>qml/Loaders/RectangleLoader.qml</file>
+        <file>qml/DemoCard.qml</file>
+        <file>qml/DemoCardList.qml</file>
     </qresource>
 </RCC>

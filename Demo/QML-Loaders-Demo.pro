@@ -1,3 +1,5 @@
+# Application icon is from here: https://pixabay.com/en/loading-animation-web-design-green-1863182/
+
 TEMPLATE = app
 
 QT += qml quick
@@ -5,7 +7,12 @@ CONFIG += c++11
 
 SOURCES += main.cpp
 
-CONFIG(release, debug|release): {
+win32: {
+    CONFIG(release, debug|release): {
+        RESOURCES += qml.qrc
+    }
+}
+else: {
     RESOURCES += qml.qrc
 }
 
@@ -32,4 +39,19 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    QMLManager.h
+    src/QMLManager.h \
+    src/ScreenHelper.h \
+
+SOURCES += \
+    src/ScreenHelper.cpp
+
+DISTFILES += \
+    android/AndroidManifest.xml \
+    android/gradle/wrapper/gradle-wrapper.jar \
+    android/gradlew \
+    android/res/values/libs.xml \
+    android/build.gradle \
+    android/gradle/wrapper/gradle-wrapper.properties \
+    android/gradlew.bat
+
+ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
