@@ -15,3 +15,7 @@ There are/will be also other designs taken from various places.
 - PulseLoader
 - LineSpinner
 - RectangleLoader (Concept by [Enes Özgör](https://github.com/enszgr))
+
+# Demo
+
+You can find the demo app [here](https://play.google.com/store/apps/details?id=org.zmc.qml_loading).
