@@ -6,7 +6,7 @@ Rectangle {
 
     property int radius: 25
     property bool useDouble: false
-    property alias running: timer.running
+    property bool running: true
 
     // ----- Private Properties ----- //
 
@@ -17,6 +17,22 @@ Rectangle {
     width: radius * 2
     height: radius * 2
     color: "transparent"
+    onRunningChanged: {
+        if (running === false) {
+            for (var i = 0; i < repeater.model; i++) {
+                if (repeater.itemAt(i)) {
+                    repeater.itemAt(i).stopAnimation();
+                }
+            }
+        }
+        else {
+            for (var i = 0; i < repeater.model; i++) {
+                if (repeater.itemAt(i)) {
+                    repeater.itemAt(i).playAnimation();
+                }
+            }
+        }
+    }
 
     Repeater {
         id: repeater
@@ -57,12 +73,14 @@ Rectangle {
                     if (anim.running == false) {
                         anim.start();
                     }
+                    else if (anim.paused) {
+                        anim.resume();
+                    }
                 }
 
                 function stopAnimation() {
                     if (anim.running) {
-                        anim.stop();
-                        _currentAngle = _getStartAngle();
+                        anim.pause();
                     }
                 }
 
@@ -97,19 +115,11 @@ Rectangle {
         interval: 100
         repeat: true
         running: true
-        onRunningChanged: {
-            if (running === false) {
-                for (var i = 0; i < repeater.model; i++) {
-                    if (repeater.itemAt(i)) {
-                        repeater.itemAt(i).stopAnimation();
-                    }
-                }
-            }
-        }
         onTriggered: {
             var maxIndex = root.useDouble ? repeater.model / 2 : repeater.model;
             if (_circleIndex === maxIndex) {
                 stop();
+                _circleIndex = 0;
             }
             else {
                 repeater.itemAt(_circleIndex).playAnimation();
