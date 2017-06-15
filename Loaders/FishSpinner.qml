@@ -6,6 +6,7 @@ Rectangle {
 
     property int radius: 25
     property bool useDouble: false
+    property alias running: timer.running
 
     // ----- Private Properties ----- //
 
@@ -58,6 +59,13 @@ Rectangle {
                     }
                 }
 
+                function stopAnimation() {
+                    if (anim.running) {
+                        anim.stop();
+                        _currentAngle = _getStartAngle();
+                    }
+                }
+
                 // ----- Private Functions ----- //
 
                 function _getStartAngle() {
@@ -85,8 +93,17 @@ Rectangle {
         // ----- Private Properties ----- //
         property int _circleIndex: 0
 
+        id: timer
         interval: 100
         repeat: true
+        running: true
+        onRunningChanged: {
+            if (running === false) {
+                for (var i = 0; i < repeater.model; i++) {
+                    repeater.itemAt(i).stopAnimation();
+                }
+            }
+        }
         onTriggered: {
             var maxIndex = root.useDouble ? repeater.model / 2 : repeater.model;
             if (_circleIndex === maxIndex) {
@@ -101,7 +118,6 @@ Rectangle {
                 _circleIndex++;
             }
         }
-        Component.onCompleted: start()
     }
 
     // ----- Private Functions ----- //
