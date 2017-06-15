@@ -1,12 +1,14 @@
 import QtQuick 2.7
 
-Rectangle {
+Item {
 
     // ----- Public Properties ----- //
 
     property int radius: 25
     property bool useDouble: false
     property bool running: true
+
+    property color color: "white"
 
     // ----- Private Properties ----- //
 
@@ -16,7 +18,6 @@ Rectangle {
     id: root
     width: radius * 2
     height: radius * 2
-    color: "transparent"
     onRunningChanged: {
         if (running === false) {
             for (var i = 0; i < repeater.model; i++) {
@@ -46,6 +47,7 @@ Rectangle {
                 width: _getWidth()
                 height: width
                 radius: width
+                color: root.color
                 transformOrigin: Item.Center
                 x: root._getPosOnCircle(_currentAngle).x
                 y: root._getPosOnCircle(_currentAngle).y
