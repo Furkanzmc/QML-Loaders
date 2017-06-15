@@ -100,7 +100,9 @@ Rectangle {
         onRunningChanged: {
             if (running === false) {
                 for (var i = 0; i < repeater.model; i++) {
-                    repeater.itemAt(i).stopAnimation();
+                    if (repeater.itemAt(i)) {
+                        repeater.itemAt(i).stopAnimation();
+                    }
                 }
             }
         }
