@@ -8,6 +8,8 @@ Item {
     property color color: "#FAFAFA"
     property bool useCircle: false
 
+    property alias running: timer.running
+
     // ----- Private Properties ----- //
 
     property int _innerRadius: radius * 0.7
@@ -16,7 +18,6 @@ Item {
     id: root
     width: radius * 2
     height: radius * 2
-    Component.onCompleted: timer.start()
 
     Repeater {
         id: repeater
@@ -53,6 +54,7 @@ Item {
         id: timer
         interval: 80
         repeat: true
+        running: true
         onTriggered: {
             if (root._currentIndex === 7) {
                 root._currentIndex = 0;
