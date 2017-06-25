@@ -15,7 +15,7 @@ There are/will be also other designs taken from various places.
 - PulseLoader
 - LineSpinner
 - RectangleLoader (Concept by [Enes Özgör](https://github.com/enszgr))
-- ClockSpinner (Implementation by [@majidkamali1370](https://github.com/majidkamali1370)
+- ClockSpinner (Implementation by [@majidkamali1370](https://github.com/majidkamali1370))
 
 # Demo
 
