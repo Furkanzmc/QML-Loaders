@@ -6,12 +6,9 @@ Item {
 
     property int lineThickness: 2
     property color color: "white"
+    property alias running: rotationAnimation.paused
 
     id: root
-    Component.onCompleted: {
-        rotationAnimation.start()
-        hourAnimation.start()
-    }
 
     Rectangle {
         id: line
@@ -44,6 +41,7 @@ Item {
         duration: 500
         from: 180
         to: 540
+        running: true
         easing.type: Easing.Linear
         loops: Animation.Infinite
     }
@@ -55,9 +53,10 @@ Item {
         duration: 6000
         from: 180
         to: 540
+        running: rotationAnimation.running
+        paused: rotationAnimation.paused
         easing.type: Easing.Linear
         loops: Animation.Infinite
     }
 }
-
 
