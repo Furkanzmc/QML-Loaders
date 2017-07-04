@@ -13,8 +13,8 @@ ScreenHelper::ScreenHelper(QObject *parent)
 qreal ScreenHelper::dp(const qreal &size)
 {
 #ifdef _WIN32
-    return round(size * (m_DPI / 90.0));
+    return qRound(size * (m_DPI / 90.0));
 #else
-    return round(size * (m_DPI / 160.0));
+    return qRound(size * (m_DPI / 160.0));
 #endif // _WIN32
 }

@@ -9,5 +9,6 @@
         <file>qml/Loaders/RectangleLoader.qml</file>
         <file>qml/DemoCard.qml</file>
         <file>qml/DemoCardList.qml</file>
+        <file>qml/Loaders/ClockSpinner.qml</file>
     </qresource>
 </RCC>

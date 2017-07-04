@@ -16,7 +16,8 @@ ListView {
         {"component": fishSpinner, "title": "Fish Spinner"},
         {"component": fishSpinnerDouble, "title": "Double Fish Spinner"},
         {"component": blockLoader, "title": "Block Loader"},
-        {"component": rectLoader, "title": "Rectangle Loader"}
+        {"component": rectLoader, "title": "Rectangle Loader"},
+        {"component": clockLoader, "title": "Clock Spinner"}
     ]
 
     id: root
@@ -77,6 +78,10 @@ ListView {
     Component {
         id: rectLoader
         RectangleLoader { width: SH.dp(50); height: SH.dp(50) }
+    }
+    Component {
+        id: clockLoader
+        ClockSpinner { width: SH.dp(50); height: SH.dp(50); turnClockwise: false }
     }
 
     // ----- Private Functions ----- //
