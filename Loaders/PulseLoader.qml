@@ -8,7 +8,19 @@ Item {
     property color color: "white"
     property int spacing: 5
 
+    property bool running: true
+
     id: root
+    onRunningChanged: {
+        for (var barIndex = 0; barIndex < barCount; barIndex++) {
+            if (running) {
+                repeater.itemAt(barIndex).playAnimation();
+            }
+            else {
+                repeater.itemAt(barIndex).pauseAnimation();
+            }
+        }
+    }
 
     Repeater {
         id: repeater
@@ -38,7 +50,17 @@ Item {
 
                 function playAnimation() {
                     if (anim.running == false) {
-                        anim.start();
+                        anim.running = true;
+                    }
+
+                    if (anim.paused) {
+                        anim.paused = false;
+                    }
+                }
+
+                function pauseAnimation() {
+                    if (anim.running) {
+                        anim.paused = true;
                     }
                 }
             }
