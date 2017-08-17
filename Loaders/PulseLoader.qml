@@ -12,12 +12,20 @@ Item {
 
     id: root
     onRunningChanged: {
+        if (barCount !== repeater.count || timer._barIndex <= barCount - 1) {
+            return;
+        }
+
         for (var barIndex = 0; barIndex < barCount; barIndex++) {
             if (running) {
-                repeater.itemAt(barIndex).playAnimation();
+                if (repeater.itemAt(barIndex)) {
+                    repeater.itemAt(barIndex).playAnimation();
+                }
             }
             else {
-                repeater.itemAt(barIndex).pauseAnimation();
+                if (repeater.itemAt(barIndex)) {
+                    repeater.itemAt(barIndex).pauseAnimation();
+                }
             }
         }
     }
@@ -71,6 +79,7 @@ Item {
         // ----- Private Properties ----- //
         property int _barIndex: 0
 
+        id: timer
         interval: 80
         repeat: true
         onTriggered: {
@@ -79,6 +88,10 @@ Item {
             }
             else {
                 repeater.itemAt(_barIndex).playAnimation();
+                if (root.running === false) {
+                    repeater.itemAt(_barIndex).pauseAnimation();
+                }
+
                 _barIndex++;
             }
         }
